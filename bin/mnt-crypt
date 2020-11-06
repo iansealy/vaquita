@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then
+  echo "No name specified"
+  exit 1
+fi
+
+NAME="$1"
+VOL="/shared/$NAME.veracrypt"
+MNT="$HOME/mnt/crypt/$NAME"
+
+if [ ! -e "$VOL" ]; then
+  echo "$VOL does not exist"
+  exit 1
+fi
+
+mounted=$(veracrypt --text -l 2>/dev/null | grep $VOL | grep $MNT | wc -l)
+
+if [ "$mounted" = 0 ]; then
+  mkdir -p $MNT
+  veracrypt --text --keyfiles="" --protect-hidden=no $VOL $MNT || rmdir --ignore-fail-on-non-empty $MNT
+fi

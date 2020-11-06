@@ -1,0 +1,44 @@
+# Colour
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# Restart GNOME Shell
+alias restart-gnome-shell='killall -3 gnome-shell 2>/dev/null'
+
+# Restart PulseAudio
+alias restart-pulseaudio='systemctl --user restart pulseaudio.service'
+
+# Pine
+alias pine='docker run -it --rm --name pine iansealy/private:pine'
+
+# Cambridge Alpine
+alias camalpine='alpine -p "{imap.hermes.cam.ac.uk/user=is460/ssl}remote_pinerc"'
+
+# Singularity
+alias singularity='docker run -it --rm --name singularity --entrypoint /bin/sh -v $(pwd):/work quay.io/singularity/singularity:v3.6.4-slim'
+
+# SSH
+alias      athome='cat ~/.ssh/.config_home_insidehome  ~/.ssh/.config_other > ~/.ssh/config'
+alias atelsewhere='cat ~/.ssh/.config_home_outsidehome ~/.ssh/.config_other > ~/.ssh/config'
+
+# Todo.txt
+alias t='~/checkouts/todo.txt-cli/todo.sh -d ~/.todo'
+alias twork='clear; t ls @work; t due @work'
+alias tlearning='clear; t ls @learning; t due @learning'
+alias tkillingtime='clear; t ls @killingtime; t due @killingtime'
+alias trest='clear; t ls -@work -@learning -@killingtime; t due -@work -@learning -@killingtime'
+
+# youtube-dl
+alias youtube-dl-audio='youtube-dl -o "%(title)s.%(ext)s" \
+  --restrict-filenames --extract-audio --audio-format mp3'
+
+# abook
+alias abook='abook --config ~/.abookrc --datafile ~/Dropbox/addressbook'
+alias abookconv='rm -f ~/Dropbox/addressbook.vcf; \
+  abook --convert --infile ~/Dropbox/addressbook \
+  --outformat vcard --outfile ~/Dropbox/addressbook.vcf'

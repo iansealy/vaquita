@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+NAME="iansealy"
+VOL="/shared/$NAME.veracrypt"
+MNT="$HOME/mnt/crypt/$NAME"
+SSH="$HOME/.ssh"
+
+mounted=$(veracrypt --text -l 2>/dev/null | grep $VOL | grep $MNT | wc -l)
+
+if [ "$mounted" = 0 ]; then
+  mnt-crypt iansealy
+fi
+
+cp $(ls $MNT/ssh/*) $SSH
+chmod 600 $SSH/id_*
+ssh-add -D
+for key in $(ls $SSH/id_* | grep -v '\.pub$'); do
+  ssh-add -t 20h $key
+done
+
+if [ "$mounted" = 0 ]; then
+  umnt-crypt iansealy
+fi

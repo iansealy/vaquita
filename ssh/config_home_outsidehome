@@ -1,0 +1,18 @@
+# Home
+
+Host home
+HostName home.iansealy.com
+User iansealy
+LocalForward 2210 192.168.1.10:22
+DynamicForward 1080
+IdentityFile ~/.ssh/id_ed25519_pi  
+IdentitiesOnly yes
+
+Host pi
+HostName localhost
+Port 2210
+User ubuntu
+IdentityFile ~/.ssh/id_ed25519_pi  
+IdentitiesOnly yes
+
+

@@ -1,0 +1,32 @@
+# Cambridge
+
+Host csd3
+HostName login-e-9.hpc.cam.ac.uk
+User is460
+UpdateHostKeys ask
+IdentityFile ~/.ssh/id_ed25519_csd3
+IdentitiesOnly yes
+
+Host github.com
+IdentityFile ~/.ssh/id_ed25519_github
+IdentitiesOnly yes
+
+# DreamHost
+
+Host dreamhost
+HostName iansealy.com
+User iansealy
+IdentityFile ~/.ssh/id_ed25519_dreamhost
+IdentitiesOnly yes
+
+Host skipling
+HostName skipling.com
+User skipling
+IdentityFile ~/.ssh/id_ed25519_skipling
+IdentitiesOnly yes
+
+Host buschlab
+HostName www.buschlab.org
+User buschlab
+IdentityFile ~/.ssh/id_ed25519_buschlab
+IdentitiesOnly yes

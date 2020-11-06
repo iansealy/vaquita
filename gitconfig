@@ -1,0 +1,9 @@
+[user]
+	name = Ian Sealy
+	email = git@iansealy.com
+[core]
+	editor = nano
+[push]
+	default = simple
+[pull]
+	rebase = false

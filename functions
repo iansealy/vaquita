@@ -1,0 +1,38 @@
+# lesspipe
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# BioPerl
+function bioperl() {
+  BASE=/scratch/bioperl/bioperl
+  if [ ! -d "$BASE-$1" ]; then
+    echo "$BASE-$1 does not exist"
+  else
+    tmp=$(echo $PERL5LIB | tr ":" "\n" | grep -v ^$BASE | tr "\n" ":")
+    export PERL5LIB=$(echo "$BASE-$1:$tmp" | sed 's/:*$//')
+  fi
+}
+export -f bioperl
+bioperl 1-6-9
+
+# Ensembl
+function ensembl() {
+  BASE=/scratch/ensembl/ensembl
+  if [ ! -d "$BASE-$1" ]; then
+    echo "$BASE-$1 does not exist"
+  else
+    tmp=$(echo $PERL5LIB | tr ":" "\n" | grep -v ^$BASE | tr "\n" ":")
+    for module in ensembl-compara ensembl; do
+      tmp="$BASE-$1/$module/modules:$tmp"
+    done
+    export PERL5LIB=$(echo "$tmp" | sed 's/:*$//')
+  fi
+}
+export -f ensembl
+ensembl 91
+
+# CSD3: autossh + screen
+function csd3() {
+  HOST=csd3
+  autossh -M 0 -- -t $HOST screen -dr $1
+}
+export -f csd3

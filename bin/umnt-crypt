@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Unmount all?
+if [ -z "$1" ]; then
+  veracrypt --text -l | grep '/shared/.*veracrypt' | grep "$HOME/mnt/crypt/" | while read line; do
+    VOL=$(echo "$line" | awk '{ print $2 }')
+    MNT=$(echo "$line" | awk '{ print $4 }')
+    veracrypt --text --dismount $VOL
+    touch $VOL
+    rmdir --ignore-fail-on-non-empty $MNT
+  done
+  exit
+fi
+
+NAME="$1"
+VOL="/shared/$NAME.veracrypt"
+MNT="$HOME/mnt/crypt/$NAME"
+
+mounted=$(veracrypt --text -l | grep $VOL | grep $MNT | wc -l)
+
+if [ "$mounted" = 1 ]; then
+  veracrypt --text --dismount $VOL
+  touch $VOL
+  rmdir --ignore-fail-on-non-empty $MNT
+fi
