@@ -1,2 +1,8 @@
 # Guard against setting environment variables twice
 export ENVIRON_SET=1
+
+# Personal bin
+export PATH="$HOME/bin:$PATH"
+
+# Less
+export LESSHISTFILE=-
