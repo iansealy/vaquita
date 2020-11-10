@@ -2,6 +2,6 @@
 
 git -C ~/checkouts/ferdi-recipes pull -q
 for recipe in `ls ~/.config/Ferdi/recipes | grep -vE '^(franz-custom-website|temp|dev)$'`; do
-  diff -rq ~/.config/Ferdi/recipes/$recipe/ ~/checkouts/ferdi-recipes/recipes/$recipe/
+  diff -r ~/.config/Ferdi/recipes/$recipe/ ~/checkouts/ferdi-recipes/recipes/$recipe/
   rsync -a ~/checkouts/ferdi-recipes/recipes/$recipe/ ~/.config/Ferdi/recipes/$recipe/
 done
