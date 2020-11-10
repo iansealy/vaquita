@@ -7,6 +7,8 @@ UpdateHostKeys ask
 IdentityFile ~/.ssh/id_ed25519_csd3
 IdentitiesOnly yes
 
+# GitHub
+
 Host github.com
 IdentityFile ~/.ssh/id_ed25519_github
 IdentitiesOnly yes
