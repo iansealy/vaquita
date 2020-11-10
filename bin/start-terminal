@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+xdotool set_desktop 0
+mate-terminal --maximize --working-directory=$HOME -t termdesk0 &
+xdotool search --sync --onlyvisible --name termdesk0
+
+for command in pine trest twork abook "mosh pi"; do
+  title=`echo $command | sed -e 's/:.*//'`
+  title=`echo $command | sed -E 's/.*[ \/]//'`
+  command=`echo $command | sed -e 's/.*://'`
+  sleep 0.5
+  xdotool key --clearmodifiers ctrl+T \
+    sleep 0.5 \
+    type --clearmodifiers "$command"
+  xdotool key --clearmodifiers Return
+  xdotool key --clearmodifiers alt+t s \
+    sleep 0.5 \
+    type --clearmodifiers $title
+  xdotool key --clearmodifiers Return
+done
+
+sleep 0.5
+xdotool key --clearmodifiers alt+1 \
+  sleep 0.5 \
+  key --clearmodifiers ctrl+d
+
+xdotool set_desktop 1
+mate-terminal --maximize --working-directory=$HOME -t termdesk1 &
+xdotool search --sync --onlyvisible --name termdesk1
+
+for command in camalpine "ZFATE:cd ~/checkouts/ZFATE; clear" "csd3 salzberg-dropseq"; do
+  title=`echo $command | sed -e 's/:.*//'`
+  title=`echo $command | sed -E 's/.*[ \/]//'`
+  command=`echo $command | sed -e 's/.*://'`
+  sleep 0.5
+  xdotool key --clearmodifiers ctrl+T \
+    sleep 0.5 \
+    type --clearmodifiers "$command"
+  xdotool key --clearmodifiers Return
+  xdotool key --clearmodifiers alt+t s \
+    sleep 0.5 \
+    type --clearmodifiers $title
+  xdotool key --clearmodifiers Return
+done
+
+sleep 0.5
+xdotool key --clearmodifiers alt+1 \
+  sleep 0.5 \
+  key --clearmodifiers ctrl+d
