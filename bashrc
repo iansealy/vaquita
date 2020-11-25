@@ -47,6 +47,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# perlbrew
+if [ -f /scratch/perl5/etc/bashrc ]; then
+  source /scratch/perl5/etc/bashrc
+fi
+
 # Aliases
 if [ -f ~/.aliases ]; then
   . ~/.aliases
