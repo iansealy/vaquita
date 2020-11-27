@@ -7,9 +7,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# xdg-open
-alias open='xdg-open'
-
 # Restart GNOME Shell
 alias restart-gnome-shell='killall -3 gnome-shell 2>/dev/null'
 

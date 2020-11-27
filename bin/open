@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [ $# -eq 0 ]; then
+  xdg-open
+else
+  for file in "$@"; do
+    xdg-open "$file"
+  done
+fi
