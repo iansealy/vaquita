@@ -52,6 +52,11 @@ if [ -f /scratch/perl5/etc/bashrc ]; then
   source /scratch/perl5/etc/bashrc
 fi
 
+# pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
 # Aliases
 if [ -f ~/.aliases ]; then
   . ~/.aliases
