@@ -20,7 +20,7 @@ alias pine='docker run -it --rm --name pine iansealy/private:pine'
 alias camalpine='alpine -p "{imap.hermes.cam.ac.uk/user=is460/ssl}remote_pinerc"'
 
 # Singularity
-alias singularity='docker run -it --rm --name singularity --entrypoint /bin/sh -v $(pwd):/work quay.io/singularity/singularity:v3.6.4-slim'
+alias singularity-docker='docker run -it --rm --name singularity --entrypoint /bin/sh -v $(pwd):/work quay.io/singularity/singularity:v3.6.4-slim'
 
 # SSH
 alias      athome='cat ~/.ssh/.config_home_insidehome  ~/.ssh/.config_other > ~/.ssh/config'
