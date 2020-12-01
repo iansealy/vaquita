@@ -4,9 +4,11 @@ xdotool set_desktop 0
 mate-terminal --maximize --working-directory=$HOME -t termdesk0 &
 xdotool search --sync --onlyvisible --name termdesk0
 
-for command in pine trest twork abook "mosh pi"; do
+for command in pine trest twork abook "pi:mosh pi -- screen -r"; do
   title=`echo $command | sed -e 's/:.*//'`
-  title=`echo $command | sed -E 's/.*[ \/]//'`
+  if [ "$title" == "$command" ]; then
+    title=`echo $command | sed -E 's/.*[ \/]//'`
+  fi
   command=`echo $command | sed -e 's/.*://'`
   sleep 0.5
   xdotool key --clearmodifiers ctrl+T \
@@ -28,9 +30,11 @@ xdotool set_desktop 1
 mate-terminal --maximize --working-directory=$HOME -t termdesk1 &
 xdotool search --sync --onlyvisible --name termdesk1
 
-for command in camalpine "ZFATE:cd ~/checkouts/ZFATE; clear" "csd3 salzberg-dropseq"; do
+for command in camalpine htop "ZFATE:cd ~/checkouts/ZFATE; clear" "csd3 salzberg-dropseq" "zmp_ph289-uxt-rnaseq:cd /scratch/work/zmp_ph289-uxt-rnaseq; screen -S zmp_ph289-uxt-rnaseq"; do
   title=`echo $command | sed -e 's/:.*//'`
-  title=`echo $command | sed -E 's/.*[ \/]//'`
+  if [ "$title" == "$command" ]; then
+    title=`echo $command | sed -E 's/.*[ \/]//'`
+  fi
   command=`echo $command | sed -e 's/.*://'`
   sleep 0.5
   xdotool key --clearmodifiers ctrl+T \
