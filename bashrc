@@ -45,6 +45,9 @@ if ! shopt -oq posix; then
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
   fi
+  if [ -f /usr/local/etc/bash_completion.d/singularity ]; then
+    . /usr/local/etc/bash_completion.d/singularity
+  fi
 fi
 
 # perlbrew
