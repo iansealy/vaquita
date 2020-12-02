@@ -8,6 +8,10 @@ export LESSHISTFILE=-
 export PYENV_ROOT="/scratch/pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
+# pipx
+export PIPX_HOME="/scratch/pipx"
+export PIPX_BIN_DIR="$HOME/bin"
+
 # Go
 export GOROOT="/usr/local/go"
 export GOPATH="/scratch/go"
