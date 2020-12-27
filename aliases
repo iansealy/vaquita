@@ -28,6 +28,14 @@ alias umnt-cam-busch='sudo umount ~/mnt/cam/busch && rmdir ~/mnt/cam/busch'
 alias mnt-cam-is460='mkdir -p ~/mnt/cam/is460 && sudo mount -t cifs -o username=is460,port=44500,uid=$(id -u),gid=$(id -g) //localhost/citiid_home/is460 ~/mnt/cam/is460'
 alias umnt-cam-is460='sudo umount ~/mnt/cam/is460 && rmdir ~/mnt/cam/is460'
 
+# Drive mounts
+alias mnt-drive-iansealy='mkdir -p ~/mnt/drive/iansealy && google-drive-ocamlfuse -label drive-iansealy ~/mnt/drive/iansealy'
+alias umnt-drive-iansealy='umount ~/mnt/drive/iansealy && rmdir ~/mnt/drive/iansealy'
+alias mnt-drive-cam='mkdir -p ~/mnt/drive/cam && google-drive-ocamlfuse -label drive-cam ~/mnt/drive/cam'
+alias umnt-drive-cam='umount ~/mnt/drive/cam && rmdir ~/mnt/drive/cam'
+alias mnt-drive-cam-infection='mkdir -p ~/mnt/drive/cam-infection && google-drive-ocamlfuse -label drive-cam-infection ~/mnt/drive/cam-infection'
+alias umnt-drive-cam-infection='umount ~/mnt/drive/cam-infection && rmdir ~/mnt/drive/cam-infection'
+
 # Singularity
 alias singularity-docker='docker run -it --rm --name singularity --entrypoint /bin/sh -v $(pwd):/work quay.io/singularity/singularity:v3.6.4-slim'
 
