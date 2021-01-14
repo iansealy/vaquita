@@ -35,6 +35,8 @@ alias mnt-drive-cam='mkdir -p ~/mnt/drive/cam && google-drive-ocamlfuse -label d
 alias umnt-drive-cam='umount ~/mnt/drive/cam && rmdir ~/mnt/drive/cam'
 alias mnt-drive-cam-infection='mkdir -p ~/mnt/drive/cam-infection && google-drive-ocamlfuse -label drive-cam-infection ~/mnt/drive/cam-infection'
 alias umnt-drive-cam-infection='umount ~/mnt/drive/cam-infection && rmdir ~/mnt/drive/cam-infection'
+alias mnt-drive-cam-icu-transcriptomics='mkdir -p ~/mnt/drive/cam-icu-transcriptomics && google-drive-ocamlfuse -label drive-cam-icu-transcriptomics ~/mnt/drive/cam-icu-transcriptomics'
+alias umnt-drive-cam-icu-transcriptomics='umount ~/mnt/drive/cam-icu-transcriptomics && rmdir ~/mnt/drive/cam-icu-transcriptomics'
 
 # Singularity
 alias singularity-docker='docker run -it --rm --name singularity --entrypoint /bin/sh -v $(pwd):/work quay.io/singularity/singularity:v3.6.4-slim'
