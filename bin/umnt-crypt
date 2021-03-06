@@ -22,4 +22,5 @@ if [ "$mounted" = 1 ]; then
   veracrypt --text --dismount $VOL
   touch $VOL
   rmdir --ignore-fail-on-non-empty $MNT
+  rsync -qa $VOL $HOME/Dropbox/crypt/
 fi
