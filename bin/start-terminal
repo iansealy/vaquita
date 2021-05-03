@@ -4,7 +4,7 @@ xdotool set_desktop 0
 mate-terminal --maximize --working-directory=$HOME -t termdesk0 &
 xdotool search --sync --onlyvisible --name termdesk0
 
-for command in pine trest twork abook "pi:mosh pi -- screen -r" "camelina:cd /scratch/work/camelina; screen -S cameline pico notes.txt"; do
+for command in pine trest twork abook "pi:mosh pi -- screen -r" "camelina:cd /scratch/work/camelina; screen -S camelina pico notes.txt"; do
   title=`echo $command | sed -e 's/:.*//'`
   if [ "$title" == "$command" ]; then
     title=`echo $command | sed -E 's/.*[ \/]//'`
