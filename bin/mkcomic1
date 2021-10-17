@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then
+  echo "No comic specified"
+  exit 1
+fi
+
+COMIC="$1"
+HTMLFILE="$COMIC.html"
+FILEDIR="${COMIC}_files"
+TMPDIR="$COMIC.tmp"
+
+if [ ! -e "$HTMLFILE" ]; then
+  echo "$HTMLFILE does not exist"
+  exit 1
+fi
+if [ ! -e "$FILEDIR" ]; then
+  echo "$FILEDIR does not exist"
+  exit 1
+fi
+
+rm -rf "$TMPDIR"
+mkdir "$TMPDIR"
+grep lstImages.push "$HTMLFILE" | sed -e 's/.*com\///' | sed -E 's/^(.{59}).*/\1.jpeg/' | awk "{ print \"cp -- '$FILEDIR/\" \$1 \"' $TMPDIR/\" sprintf(\"%02d\", ++i) \".jpg\" }" | bash -
+xdg-open "$TMPDIR/01.jpg"
+
+echo "Next run, for example, mkcomic2 $COMIC 05 10"

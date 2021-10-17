@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then
+  echo "No comic specified"
+  exit 1
+fi
+
+COMIC="$1"
+TMPDIR="$COMIC.tmp"
+LOWERCOMIC="${1,,}"
+
+if [ ! -e "$TMPDIR" ]; then
+  echo "$TMPDIR does not exist"
+  exit 1
+fi
+
+shift
+
+for file in "$@"; do
+  convert -crop 100%x100%+0-100 "$TMPDIR/$file.jpg" "$TMPDIR/$file.tmp.jpg"
+  mv "$TMPDIR/$file.tmp.jpg" "$TMPDIR/$file.jpg"
+done
+
+touch -t 0001010000 "$TMPDIR/*.jpg"
+cd $TMPDIR
+zip ../$COMIC.cbz *.jpg
+cd ..
+
+cp "$TMPDIR/01.jpg" "$LOWERCOMIC.jpg"
+
+xdg-open "$TMPDIR/01.jpg"
