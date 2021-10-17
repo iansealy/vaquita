@@ -21,7 +21,7 @@ for file in "$@"; do
   mv "$TMPDIR/$file.tmp.jpg" "$TMPDIR/$file.jpg"
 done
 
-touch -t 0001010000 "$TMPDIR/*.jpg"
+touch -t 0001010000 $TMPDIR/*.jpg
 cd $TMPDIR
 zip ../$COMIC.cbz *.jpg
 cd ..
