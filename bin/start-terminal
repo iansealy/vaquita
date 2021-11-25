@@ -56,7 +56,7 @@ xdotool set_desktop 3
 mate-terminal --maximize --working-directory=$HOME -t termdesk3 &
 xdotool search --sync --onlyvisible --name termdesk3
 
-for command in "comics:clear" "titles:ssh dreamhost \"find iansealy.com/xmen/ | grep png$ | grep uploads | grep -v [0-9]x[0-9] | grep -v xmen-[0-9] | sed -e 's/.*\///' | sort -V\"" "comics:cd /scratch/comics; clear"; do
+for command in "comics:clear" "titles:ssh dreamhost \"find iansealy.com/xmen/ | grep png$ | grep uploads | grep -v [0-9]x[0-9] | grep -v xmen-[0-9] | sed -e 's/.*\///' | sort -V\"" "comics:cd /scratch/comics; clear" "xmen:cd ~/checkouts/xmen; screen -S xmen pico notes.txt"; do
   title=`echo $command | sed -e 's/:.*//'`
   if [ "$title" == "$command" ]; then
     title=`echo $command | sed -E 's/.*[ \/]//'`
