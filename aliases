@@ -17,7 +17,7 @@ alias restart-pulseaudio='systemctl --user restart pulseaudio.service'
 alias pine='docker run -it --rm --name pine iansealy/private:pine'
 
 # Cambridge Alpine
-alias camalpine='alpine -p "{imap.hermes.cam.ac.uk/user=is460/ssl}remote_pinerc"'
+alias camalpine='alpine -p "{outlook.office365.com/ssl/user=is460@cam.ac.uk/auth=xoauth2}remote_pinerc_outlook"'
 
 # Cambridge VPN
 alias camvpn='cd ~/checkouts/vagrantfiles/camvpn; vagrant up; vagrant ssh -c "sudo openfortivpn" -- -L 44500:jcbc-store01.jcbc.private.cam.ac.uk:445; vagrant suspend'
