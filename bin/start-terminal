@@ -30,7 +30,7 @@ xdotool set_desktop 1
 mate-terminal --maximize --working-directory=$HOME -t termdesk1 &
 xdotool search --sync --onlyvisible --name termdesk1
 
-for command in camalpine "htop:htop --sort-key PERCENT_CPU" bpytop "ZFATE:cd ~/checkouts/ZFATE; clear" "zmp_ph289-uxt-rnaseq:cd /scratch/work/zmp_ph289-uxt-rnaseq; screen -S zmp_ph289-uxt-rnaseq pico README.md" "infection-vcfs:cd /scratch/work/infection-vcfs; screen -S infection-vcfs pico notes.txt" "circadian-rhythm:cd /scratch/work/circadian-rhythm; screen -S circadian-rhythm pico notes.txt"; do
+for command in camalpine "htop:htop --sort-key PERCENT_CPU" bpytop "ZFATE:cd ~/checkouts/ZFATE; clear"; do
   title=`echo $command | sed -e 's/:.*//'`
   if [ "$title" == "$command" ]; then
     title=`echo $command | sed -E 's/.*[ \/]//'`
