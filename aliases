@@ -16,6 +16,9 @@ alias restart-pulseaudio='systemctl --user restart pulseaudio.service'
 # Pine
 alias pine='docker run -it --rm --name pine iansealy/private:pine'
 
+# QMUL Alpine
+alias qmulalpine='alpine -p "{outlook.office365.com/ssl/user=bty107@qmul.ac.uk/auth=xoauth2}remote_pinerc"'
+
 # Cambridge Alpine
 alias camalpine='alpine -p "{outlook.office365.com/ssl/user=is460@cam.ac.uk/auth=xoauth2}remote_pinerc_outlook"'
 
