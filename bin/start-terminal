@@ -30,7 +30,7 @@ xdotool set_desktop 1
 mate-terminal --maximize --working-directory=$HOME -t termdesk1 &
 xdotool search --sync --onlyvisible --name termdesk1
 
-for command in camalpine "htop:htop --sort-key PERCENT_CPU" bpytop "ZFATE:cd ~/checkouts/ZFATE; clear"; do
+for command in qmulalpine camalpine "htop:htop --sort-key PERCENT_CPU" bpytop "ZFATE:cd ~/checkouts/ZFATE; clear"; do
   title=`echo $command | sed -e 's/:.*//'`
   if [ "$title" == "$command" ]; then
     title=`echo $command | sed -E 's/.*[ \/]//'`
