@@ -21,7 +21,7 @@ fi
 
 rm -rf "$TMPDIR"
 mkdir "$TMPDIR"
-grep lstImages.push "$HTMLFILE" | sed -e 's/.*com\///' | sed -E 's/^(.{59}).*/\1.jpeg/' | awk "{ print \"cp -- '$FILEDIR/\" \$1 \"' $TMPDIR/\" sprintf(\"%02d\", ++i) \".jpg\" }" | bash -
+grep noreferrer "$HTMLFILE" | sed -e 's/.*src="//' | sed -e 's/".*//' | awk "{ print \"cp -- '\" \$1 \"' $TMPDIR/\" sprintf(\"%02d\", ++i) \".jpg\" }" | bash -
 xdg-open "$TMPDIR/01.jpg"
 
 echo "Next run, for example, mkcomic2 $COMIC 05 10"
