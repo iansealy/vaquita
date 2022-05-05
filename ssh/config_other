@@ -1,7 +1,7 @@
 # QMUL
 
 Host apocrita
-HostName login.hpc.qmul.ac.uk
+HostName frontend8.apocrita.hpc.qmul.ac.uk
 User bty107
 IdentityFile ~/.ssh/id_ed25519_apocrita
 IdentitiesOnly yes
